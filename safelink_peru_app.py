@@ -709,7 +709,8 @@ with tab1:
                     log_items.append('<div class="log-line log-line-green">[URL] Sin URLs sospechosas</div>')
 
                 if result["personal"]:
-                    log_items.append(f'<div class="log-line log-line-red">[DATA] Solicita: {\"\"\" \\\", \\\"\"}" .join(result["personal"][:3])}</div>')
+                    personal_str = ", ".join(result["personal"][:3])
+                    log_items.append(f'<div class="log-line log-line-red">[DATA] Solicita: {personal_str}</div>')
 
                 log_items.append(f'<div class="log-line">[SCORE] Resultado final: {score}/100 → {risk}</div>')
 
@@ -926,7 +927,7 @@ with tab3:
     st.markdown("### 🎣 ¿Qué es el Phishing?")
     st.markdown("""
     <div class="learn-card learn-card-red">
-        <div class="learn-title">El \"phishing\" es pescar... pero a ti</div>
+        <div class="learn-title">El "phishing" es pescar... pero a ti</div>
         <div class="learn-body">
         Imagínate que alguien te manda un mensaje haciéndose pasar por tu banco o por Yape. 
         Te dice que tu cuenta está en peligro y que tienes que entrar <em>ya mismo</em> a un enlace. 
@@ -942,11 +943,11 @@ with tab3:
         <div class="learn-card learn-card-red">
             <div class="learn-title">🚩 Las 5 señales de alarma</div>
             <div class="learn-body">
-            1. <b>Te meten prisa</b> — \"actúa en 24 horas\"<br>
+            1. <b>Te meten prisa</b> — "actúa en 24 horas"<br>
             2. <b>Te piden tu clave o PIN</b> — ningún banco lo hace<br>
             3. <b>El enlace es raro</b> — bcp-seguro.xyz ≠ bcp.com.pe<br>
             4. <b>Hay faltas de ortografía</b> — señal clásica de fraude<br>
-            5. <b>Te amenazan</b> — \"tu cuenta será bloqueada\"
+            5. <b>Te amenazan</b> — "tu cuenta será bloqueada"
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -1014,9 +1015,9 @@ with tab3:
     st.markdown("### 📞 ¿Fuiste víctima? Actúa ya")
     ec1, ec2, ec3 = st.columns(3, gap="medium")
     contacts = [
-        ("🏦", "Tu banco", "Bloquea tu tarjeta de inmediato.\\nBCP: 311-9898\\nInterbank: 311-9000\\nBBVA: 595-0000"),
-        ("🚔", "PNP — Ciberdelincuencia", "Denuncia en la comisaría más cercana o en:\\nwww.pnp.gob.pe\\nTeléfono: 105"),
-        ("⚖️", "Indecopi", "Para denunciar empresas o servicios fraudulentos:\\n0800-4-4040 (gratuito)\\nwww.indecopi.gob.pe"),
+        ("🏦", "Tu banco", "Bloquea tu tarjeta de inmediato.\nBCP: 311-9898\nInterbank: 311-9000\nBBVA: 595-0000"),
+        ("🚔", "PNP — Ciberdelincuencia", "Denuncia en la comisaría más cercana o en:\nwww.pnp.gob.pe\nTeléfono: 105"),
+        ("⚖️", "Indecopi", "Para denunciar empresas o servicios fraudulentos:\n0800-4-4040 (gratuito)\nwww.indecopi.gob.pe"),
     ]
     for col, (icon, title, body) in zip([ec1, ec2, ec3], contacts):
         with col:
